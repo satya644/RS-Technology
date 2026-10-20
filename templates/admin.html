@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS Technology | Master Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-[#0b0f19] text-gray-200 font-sans antialiased">
+
+    <!-- Topbar -->
+    <header class="border-b border-gray-800 bg-[#0e1626] px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+        <div class="flex items-center gap-3">
+            <span class="text-xl font-black text-blue-400 tracking-wider">RS Technology</span>
+            <span class="text-xs bg-gray-800 text-gray-400 px-2.5 py-0.5 rounded font-mono">Control Center</span>
+        </div>
+        <a href="/" target="_blank" class="text-xs font-semibold text-blue-400 hover:text-blue-300 flex items-center gap-1.5 transition">
+            Live Website Dekhein <i class="fas fa-external-link-alt text-[10px]"></i>
+        </a>
+    </header>
+
+    <div class="max-w-7xl mx-auto p-6 space-y-10">
+
+        <!-- 1. Portfolio Work Manager (Direct File Upload) -->
+        <section class="bg-[#111827] border border-gray-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold flex items-center gap-2 text-white">
+                    <i class="fas fa-briefcase text-purple-400"></i> Manage Portfolio Works (Upload Images)
+                </h2>
+                <button onclick="loadAdminPortfolio()" class="text-xs bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg text-gray-300 transition">
+                    <i class="fas fa-sync-alt mr-1"></i> Refresh Works
+                </button>
+            </div>
+
+            <!-- Upload Form -->
+            <form id="portfolioForm" class="grid sm:grid-cols-2 md:grid-cols-4 gap-4 bg-[#151f33] p-5 rounded-2xl border border-gray-700/60 mb-8" enctype="multipart/form-data">
+                <div>
+                    <label class="text-xs text-gray-400 mb-1 block">Project Title / Client</label>
+                    <input type="text" id="work_title" placeholder="e.g. Verma Jewellers Website" required class="w-full bg-[#0d1424] border border-gray-700 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-purple-500">
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400 mb-1 block">Category</label>
+                    <select id="work_category" class="w-full bg-[#0d1424] border border-gray-700 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-purple-500">
+                        <option value="Website">Website & App</option>
+                        <option value="Viral Reel">Viral Reel / Video</option>
+                        <option value="Paid Ads">Paid Ads Campaign</option>
+                        <option value="Local SEO">Local SEO / GMB</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400 mb-1 block">Project Screenshot / Photo</label>
+                    <input type="file" id="work_image_file" accept="image/*" required class="w-full bg-[#0d1424] border border-gray-700 rounded-xl p-1.5 text-xs text-gray-300 file:mr-2 file:py-1 file:px-2 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-purple-600 file:text-white hover:file:bg-purple-700 cursor-pointer">
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400 mb-1 block">Live Link / URL (Optional)</label>
+                    <input type="url" id="work_link" placeholder="https://instagram.com/... ya link" class="w-full bg-[#0d1424] border border-gray-700 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-purple-500">
+                </div>
+                <div class="sm:col-span-2 md:col-span-3">
+                    <label class="text-xs text-gray-400 mb-1 block">Description</label>
+                    <input type="text" id="work_desc" placeholder="Chhota description (e.g. Fast mobile web app with WhatsApp checkout)" class="w-full bg-[#0d1424] border border-gray-700 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-purple-500">
+                </div>
+                <div class="flex items-end">
+                    <button type="submit" id="uploadBtn" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-bold py-2.5 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow">
+                        <i class="fas fa-upload"></i> Upload & Live Karein
+                    </button>
+                </div>
+            </form>
+            <div id="workMsg" class="text-xs mb-4 hidden"></div>
+
+            <!-- Live Projects Grid -->
+            <div id="adminPortfolioList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="text-gray-500 text-xs col-span-3">Loading projects...</div>
+            </div>
+        </section>
+
+        <!-- 2. Review Moderation Queue -->
+        <section class="bg-[#111827] border border-gray-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-lg font-bold flex items-center gap-2">
+                    <i class="fas fa-star text-yellow-400"></i> Review Moderation Queue
+                </h2>
+                <button onclick="loadAdminReviews()" class="text-xs bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg text-gray-300">
+                    <i class="fas fa-sync-alt mr-1"></i> Refresh Reviews
+                </button>
+            </div>
+            
+            <div id="reviewsList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="text-gray-500 text-sm col-span-3">Loading reviews...</div>
+            </div>
+        </section>
+
+        <!-- 3. Leads Pipeline Table -->
+        <section class="bg-[#111827] border border-gray-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-lg font-bold flex items-center gap-2">
+                    <i class="fas fa-users text-blue-400"></i> Incoming Leads Pipeline
+                </h2>
+                <button onclick="loadAdminLeads()" class="text-xs bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded-lg text-gray-300">
+                    <i class="fas fa-sync-alt mr-1"></i> Refresh Leads
+                </button>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm text-gray-300">
+                    <thead class="bg-[#1c2436] text-xs uppercase text-gray-400">
+                        <tr>
+                            <th class="p-3.5">Date</th>
+                            <th class="p-3.5">Client Name</th>
+                            <th class="p-3.5">Business</th>
+                            <th class="p-3.5">Phone (WhatsApp)</th>
+                            <th class="p-3.5">Plan</th>
+                            <th class="p-3.5">Status</th>
+                            <th class="p-3.5">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leadsTableBody" class="divide-y divide-gray-800">
+                        <tr><td colspan="7" class="p-4 text-center text-gray-500">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // ==================== PORTFOLIO ACTIONS (FormData for File Upload) ====================
+        async function loadAdminPortfolio() {
+            try {
+                const res = await fetch('/api/admin/portfolio');
+                const works = await res.json();
+                const container = document.getElementById('adminPortfolioList');
+                if (works.length === 0) {
+                    container.innerHTML = '<div class="text-gray-500 text-xs col-span-3">Abhi koi project add nahi kiya gaya hai.</div>';
+                    return;
+                }
+                container.innerHTML = works.map(w => `
+                    <div class="bg-[#151f33] border border-gray-800 rounded-2xl overflow-hidden flex flex-col justify-between">
+                        <img src="${w.image_url}" alt="${w.title}" class="h-36 w-full object-cover">
+                        <div class="p-4 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-900/80 text-purple-300 uppercase">${w.category}</span>
+                                    <span class="text-[10px] text-green-400 font-bold">● ${w.status}</span>
+                                </div>
+                                <h4 class="font-bold text-sm text-white">${w.title}</h4>
+                                <p class="text-xs text-gray-400 mt-1">${w.description || ''}</p>
+                            </div>
+                            <div class="flex justify-between items-center mt-4 pt-3 border-t border-gray-700/50">
+                                ${w.project_link && w.project_link !== '#' ? `
+                                <a href="${w.project_link}" target="_blank" class="text-xs text-blue-400 hover:underline flex items-center gap-1">
+                                    Visit <i class="fas fa-external-link-alt text-[10px]"></i>
+                                </a>` : '<span class="text-xs text-gray-500">No link</span>'}
+                                <button onclick="deletePortfolio('${w._id}')" class="text-xs text-red-400 hover:text-red-300 bg-red-950/60 px-2.5 py-1 rounded border border-red-800/60 font-semibold">
+                                    <i class="fas fa-trash-alt mr-1"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        document.getElementById('portfolioForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('uploadBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Uploading...';
+
+            const formData = new FormData();
+            formData.append('title', document.getElementById('work_title').value);
+            formData.append('category', document.getElementById('work_category').value);
+            formData.append('image_file', document.getElementById('work_image_file').files[0]);
+            formData.append('project_link', document.getElementById('work_link').value);
+            formData.append('description', document.getElementById('work_desc').value);
+
+            try {
+                const res = await fetch('/api/admin/portfolio', {
+                    method: 'POST',
+                    body: formData // multipart/form-data auto set hota hai
+                });
+                const data = await res.json();
+                const msg = document.getElementById('workMsg');
+                msg.classList.remove('hidden');
+                if (data.success) {
+                    msg.className = 'text-xs text-green-400 mb-4';
+                    msg.innerText = 'Image successfully upload ho gayi aur portfolio par live hai!';
+                    document.getElementById('portfolioForm').reset();
+                    loadAdminPortfolio();
+                } else {
+                    msg.className = 'text-xs text-red-400 mb-4';
+                    msg.innerText = data.error || 'Upload error.';
+                }
+            } catch (err) {
+                console.error(err);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-upload"></i> Upload & Live Karein';
+            }
+        });
+
+        async function deletePortfolio(id) {
+            if(!confirm("Kya aap sach me is image/project ko delete karna chahte hain?")) return;
+            await fetch(`/api/admin/portfolio/${id}`, { method: 'DELETE' });
+            loadAdminPortfolio();
+        }
+
+        // ==================== REVIEWS ACTIONS ====================
+        async function loadAdminReviews() {
+            try {
+                const res = await fetch('/api/admin/reviews');
+                const reviews = await res.json();
+                const container = document.getElementById('reviewsList');
+                if (reviews.length === 0) {
+                    container.innerHTML = '<div class="text-gray-500 text-sm col-span-3">Koi review nahi mila.</div>';
+                    return;
+                }
+                container.innerHTML = reviews.map(r => `
+                    <div class="bg-[#1a2336] border ${r.status === 'Approved' ? 'border-green-600/50' : (r.status === 'Rejected' ? 'border-red-600/50' : 'border-yellow-600/50')} p-4 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-yellow-400 text-xs">${'★'.repeat(r.rating)}</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded font-bold ${r.status === 'Approved' ? 'bg-green-900 text-green-300' : (r.status === 'Rejected' ? 'bg-red-900 text-red-300' : 'bg-yellow-900 text-yellow-300')}">${r.status}</span>
+                            </div>
+                            <p class="text-xs text-gray-300 mb-3 italic">"${r.review_text}"</p>
+                            <div class="text-xs font-bold text-white">${r.client_name}</div>
+                            <div class="text-[11px] text-gray-400">${r.business_name}</div>
+                        </div>
+                        <div class="flex gap-2 mt-4 pt-3 border-t border-gray-700/50">
+                            <button onclick="setReviewStatus('${r._id}', 'Approved')" class="flex-1 bg-green-600 hover:bg-green-500 text-white text-xs py-1.5 rounded-lg font-bold transition">Approve</button>
+                            <button onclick="setReviewStatus('${r._id}', 'Rejected')" class="flex-1 bg-red-600 hover:bg-red-500 text-white text-xs py-1.5 rounded-lg font-bold transition">Reject</button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        async function setReviewStatus(id, status) {
+            await fetch(`/api/admin/reviews/${id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status })
+            });
+            loadAdminReviews();
+        }
+
+        // ==================== LEADS ACTIONS ====================
+        async function loadAdminLeads() {
+            try {
+                const res = await fetch('/api/admin/leads');
+                const leads = await res.json();
+                const tbody = document.getElementById('leadsTableBody');
+                if (leads.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" class="p-4 text-center text-gray-500">Koi lead nahi mili.</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = leads.map(l => `
+                    <tr class="hover:bg-[#151e30] transition">
+                        <td class="p-3 text-xs text-gray-500">${l.created_at || '-'}</td>
+                        <td class="p-3 font-semibold text-white">${l.name}</td>
+                        <td class="p-3">${l.business_name}</td>
+                        <td class="p-3 text-blue-400 font-mono">${l.phone}</td>
+                        <td class="p-3 text-xs text-purple-300">${l.plan_interested}</td>
+                        <td class="p-3"><span class="bg-blue-900/60 text-blue-400 text-xs px-2.5 py-0.5 rounded-full font-bold">${l.status}</span></td>
+                        <td class="p-3">
+                            <a href="https://wa.me/91${l.phone}" target="_blank" class="bg-green-600 hover:bg-green-500 text-white text-xs px-3 py-1.5 rounded-lg inline-flex items-center gap-1 font-semibold transition">
+                                <i class="fab fa-whatsapp"></i> Chat
+                            </a>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // Initial Load
+        loadAdminPortfolio();
+        loadAdminReviews();
+        loadAdminLeads();
+    </script>
+</body>
+</html>
