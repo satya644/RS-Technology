@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS Technology | Digital Growth Agency for Local Businesses</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(147, 51, 234, 0.2); }
+            50% { box-shadow: 0 0 35px rgba(59, 130, 246, 0.7), 0 0 60px rgba(236, 72, 153, 0.4); }
+        }
+        @keyframes floatAnim {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .neon-box { animation: pulseGlow 4s infinite ease-in-out; }
+        .floating { animation: floatAnim 3s ease-in-out infinite; }
+        .gradient-text {
+            background: linear-gradient(135deg, #60a5fa, #c084fc, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            background: linear-gradient(#0e1626, #0e1626) padding-box,
+                        linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899) border-box;
+            border: 2px solid transparent;
+        }
+    </style>
+</head>
+<body class="bg-[#070b14] text-gray-200 font-sans antialiased selection:bg-purple-600 selection:text-white overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="border-b border-gray-800/80 bg-[#090e1a]/90 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center transition-all">
+        <a href="/" class="flex items-center gap-3 group">
+            <div class="relative flex items-center justify-center">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-pink-600 rounded-2xl blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
+                <svg width="42" height="42" viewBox="0 0 100 100" fill="none" class="relative transform group-hover:scale-105 transition duration-300">
+                    <defs>
+                        <linearGradient id="rsGradNav" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#3b82f6"/>
+                            <stop offset="50%" stop-color="#8b5cf6"/>
+                            <stop offset="100%" stop-color="#ec4899"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="8" y="8" width="84" height="84" rx="22" stroke="url(#rsGradNav)" stroke-width="5" fill="#0d1424"/>
+                    <path d="M28 72V30H44C52 30 56 34 56 41C56 48 50 51 44 51H32" stroke="url(#rsGradNav)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M42 51L56 72" stroke="url(#rsGradNav)" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M72 40C68 33 58 35 58 43C58 52 74 49 74 60C74 69 63 71 58 66" stroke="#60a5fa" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="text-2xl font-black gradient-text tracking-wider uppercase">RS Technology</div>
+        </a>
+
+        <div class="space-x-8 text-sm font-semibold hidden md:flex items-center">
+            <a href="#services" class="hover:text-blue-400 transition hover:-translate-y-0.5 transform">Services</a>
+            <a href="#work" class="hover:text-purple-400 transition hover:-translate-y-0.5 transform">Portfolio</a>
+            <a href="#pricing" class="hover:text-pink-400 transition hover:-translate-y-0.5 transform">Pricing</a>
+            <a href="#reviews" class="hover:text-blue-400 transition hover:-translate-y-0.5 transform">Testimonials</a>
+            <a href="https://www.instagram.com/mr___satyam____/" target="_blank" class="text-pink-400 hover:text-pink-300 transition flex items-center gap-1.5 font-bold hover:scale-105 transform">
+                <i class="fab fa-instagram text-lg"></i> @mr___satyam____
+            </a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="tel:6386325046" class="hidden sm:flex items-center gap-2 text-sm font-bold bg-gray-900/80 hover:bg-gray-800 px-4 py-2 rounded-xl border border-gray-700/80 transition hover:border-blue-500">
+                <i class="fas fa-phone-alt text-blue-400 animate-bounce"></i> +91 6386325046
+            </a>
+            <a href="#contact" class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:opacity-90 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition transform hover:scale-105 shadow-lg shadow-purple-500/25">
+                Get Audit
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+        <div data-aos="zoom-in" class="inline-flex items-center gap-2 bg-blue-950/60 border border-blue-500/40 text-blue-400 text-xs px-5 py-2 rounded-full mb-8 font-bold tracking-wide backdrop-blur">
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-ping"></span>
+            LOCAL BUSINESS DIGITAL SALES ENGINE
+        </div>
+
+        <h1 data-aos="fade-up" data-aos-delay="100" class="text-4xl sm:text-6xl md:text-7xl font-black mb-8 leading-tight tracking-tight">
+            Scale Your Local Business Into An <br>
+            <span class="gradient-text">Online Sales Machine</span>
+        </h1>
+
+        <p data-aos="fade-up" data-aos-delay="200" class="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg mb-10 leading-relaxed">
+            High-converting custom web apps, viral cinematic reels, local influencer promotions, and hyper-targeted advertising engineered to bring verified buyers directly to your store and WhatsApp.
+        </p>
+
+        <div data-aos="fade-up" data-aos-delay="300" class="flex flex-wrap justify-center gap-4">
+            <a href="https://wa.me/916386325046?text=Hi%20RS%20Technology,%20I%20want%20to%20grow%20my%20local%20business%20online." target="_blank" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-2xl font-black flex items-center gap-3 shadow-xl shadow-green-900/40 transform hover:-translate-y-1 transition duration-300">
+                <i class="fab fa-whatsapp text-2xl"></i> Connect on WhatsApp
+            </a>
+            <a href="#pricing" class="bg-gray-900/90 hover:bg-gray-800 border border-gray-700 text-white px-8 py-4 rounded-2xl font-bold transition transform hover:-translate-y-1 duration-300">
+                Explore Packages
+            </a>
+        </div>
+    </section>
+
+    <!-- Core Services -->
+    <section id="services" class="max-w-6xl mx-auto px-6 py-20">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Core Growth Services</h2>
+            <div class="h-1 w-20 bg-gradient-to-r from-blue-500 to-pink-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div data-aos="fade-up" data-aos-delay="100" class="gradient-border p-8 rounded-3xl bg-[#0d1424] hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 group">
+                <div class="w-14 h-14 bg-blue-500/10 border border-blue-500/30 rounded-2xl flex items-center justify-center text-blue-400 text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Custom Web Apps & Funnels</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Lightning-fast mobile responsive landing pages, direct catalog systems, and real-time custom admin dashboards.</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="200" class="gradient-border p-8 rounded-3xl bg-[#0d1424] hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 group">
+                <div class="w-14 h-14 bg-purple-500/10 border border-purple-500/30 rounded-2xl flex items-center justify-center text-purple-400 text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Viral Reels & Local Creators</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Cinematic product shoots, engaging video editing, and partnerships with local micro and macro creators to build instant trust.</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="300" class="gradient-border p-8 rounded-3xl bg-[#0d1424] hover:shadow-2xl hover:shadow-pink-500/20 transition-all duration-300 group">
+                <div class="w-14 h-14 bg-pink-500/10 border border-pink-500/30 rounded-2xl flex items-center justify-center text-pink-400 text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-white">Hyper-Local Ads & GMB SEO</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Laser-targeted Meta & Google Call Ads within a 5–15 km radius, combined with top #1 organic Google Maps rankings.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Portfolio Works Section -->
+    <section id="work" class="max-w-6xl mx-auto px-6 py-20">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Featured Projects & Case Studies</h2>
+            <p class="text-gray-400 text-sm">Explore live digital assets and campaigns engineered by RS Technology</p>
+            <div class="h-1 w-20 bg-gradient-to-r from-blue-500 to-pink-500 mx-auto rounded-full mt-4"></div>
+        </div>
+
+        <!-- Dynamic Live Projects Container -->
+        <div id="livePortfolioContainer" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+            <div class="col-span-3 text-center text-gray-500 text-sm">Loading projects...</div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="max-w-6xl mx-auto px-6 py-20">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Transparent Pricing Tiers</h2>
+            <div class="h-1 w-20 bg-gradient-to-r from-blue-500 to-pink-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 items-center">
+            <!-- Plan 1 -->
+            <div data-aos="fade-right" class="bg-[#0f172a] border border-gray-800 p-8 rounded-3xl flex flex-col justify-between hover:border-gray-700 transition duration-300">
+                <div>
+                    <span class="text-xs uppercase font-bold tracking-wider text-gray-400">Starter Setup</span>
+                    <div class="text-4xl font-black text-white my-4">₹7,000 <span class="text-xs font-normal text-gray-500">/ One-time</span></div>
+                    <ul class="space-y-3.5 text-sm text-gray-300 mb-8">
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-green-400"></i> 1-Page Responsive Website</li>
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-green-400"></i> Direct WhatsApp Order Integration</li>
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-green-400"></i> Google My Business (GMB) Setup</li>
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-green-400"></i> 2 High-Impact Launch Reels</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="block text-center bg-gray-800 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition">Choose Starter</a>
+            </div>
+
+            <!-- Plan 2 (Highlighted) -->
+            <div data-aos="zoom-in" class="bg-[#101b33] border-2 border-purple-500 p-8 sm:p-10 rounded-3xl flex flex-col justify-between relative neon-box transform md:-translate-y-2">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-wider shadow">Most Popular Choice</div>
+                <div>
+                    <span class="text-xs uppercase font-bold tracking-wider text-purple-400">Growth Machine</span>
+                    <div class="text-5xl font-black text-white my-4">₹15,000 <span class="text-xs font-normal text-gray-400">/ Month</span></div>
+                    <ul class="space-y-3.5 text-sm text-gray-200 mb-8 font-medium">
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-purple-400"></i> 5-Page Dynamic Website + Admin</li>
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-purple-400"></i> 8 Edited Reels / Month</li>
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-purple-400"></i> 12 Social Brand Creatives</li>
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-purple-400"></i> Local SEO & GMB Ranking</li>
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-purple-400"></i> 1 Ad Campaign + Creator Collab</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="block text-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-black py-4 rounded-xl shadow-lg transition transform hover:scale-102">Deploy Growth Plan</a>
+            </div>
+
+            <!-- Plan 3 -->
+            <div data-aos="fade-left" class="bg-[#0f172a] border border-gray-800 p-8 rounded-3xl flex flex-col justify-between hover:border-gray-700 transition duration-300">
+                <div>
+                    <span class="text-xs uppercase font-bold tracking-wider text-pink-400">360° Dominator</span>
+                    <div class="text-4xl font-black text-white my-4">₹30,000 <span class="text-xs font-normal text-gray-500">/ Month</span></div>
+                    <ul class="space-y-3.5 text-sm text-gray-300 mb-8">
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-pink-400"></i> Full Custom E-Commerce Platform</li>
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-pink-400"></i> 15 High-Production Reels</li>
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-pink-400"></i> Full Multi-Platform Ads</li>
+                        <li class="flex items-center gap-2.5"><i class="fas fa-check-circle text-pink-400"></i> 2–3 Influencer Store Visits</li>
+                    </ul>
+                </div>
+                <a href="#contact" class="block text-center bg-gray-800 hover:bg-gray-700 text-white font-bold py-3.5 rounded-xl transition">Choose VIP Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Reviews Section -->
+    <section id="reviews" class="max-w-6xl mx-auto px-6 py-20">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-3">Client Reviews & Testimonials</h2>
+            <p class="text-gray-400 text-sm">Verified feedback from local business owners</p>
+        </div>
+
+        <div id="approved-reviews" class="grid md:grid-cols-3 gap-6 mb-16" data-aos="fade-up">
+            <div class="col-span-3 text-center text-gray-500 text-sm">Fetching verified reviews...</div>
+        </div>
+
+        <!-- Submit Review Box -->
+        <div class="max-w-xl mx-auto bg-[#0d1424] border border-gray-800 p-8 rounded-3xl shadow-xl" data-aos="fade-up">
+            <h3 class="text-xl font-bold mb-4 text-center">Share Your Feedback</h3>
+            <form id="reviewForm" class="space-y-4">
+                <input type="text" id="rev_name" placeholder="Your Name" required class="w-full bg-[#151f33] border border-gray-700/80 rounded-xl p-3 text-sm focus:outline-none focus:border-purple-500">
+                <input type="text" id="rev_business" placeholder="Business / Store Name (e.g. Verma Jewellers)" required class="w-full bg-[#151f33] border border-gray-700/80 rounded-xl p-3 text-sm focus:outline-none focus:border-purple-500">
+                <select id="rev_rating" class="w-full bg-[#151f33] border border-gray-700/80 rounded-xl p-3 text-sm focus:outline-none focus:border-purple-500">
+                    <option value="5">⭐⭐⭐⭐⭐ (5 Stars - Exceptional)</option>
+                    <option value="4">⭐⭐⭐⭐ (4 Stars - Very Good)</option>
+                    <option value="3">⭐⭐⭐ (3 Stars - Good)</option>
+                </select>
+                <textarea id="rev_text" rows="3" placeholder="How was your experience partnering with RS Technology?" required class="w-full bg-[#151f33] border border-gray-700/80 rounded-xl p-3 text-sm focus:outline-none focus:border-purple-500"></textarea>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 text-white font-bold py-3.5 rounded-xl text-sm transition transform hover:scale-[1.01]">Submit Review</button>
+            </form>
+            <div id="reviewMsg" class="mt-4 text-sm text-center hidden"></div>
+        </div>
+    </section>
+
+    <!-- Consultation Form -->
+    <section id="contact" class="max-w-xl mx-auto px-6 py-20" data-aos="zoom-in">
+        <div class="gradient-border p-8 sm:p-10 rounded-3xl bg-[#0d1424] shadow-2xl">
+            <h2 class="text-2xl font-black text-center mb-2">Book Your Free Digital Audit</h2>
+            <p class="text-center text-gray-400 text-sm mb-8">Fill in your details and our team will get in touch within 24 hours.</p>
+            <form id="leadForm" class="space-y-4">
+                <input type="text" id="lead_name" placeholder="Your Full Name" required class="w-full bg-[#151f33] border border-gray-700 rounded-xl p-3.5 text-sm focus:outline-none focus:border-blue-500">
+                <input type="text" id="lead_business" placeholder="Business / Firm Name" required class="w-full bg-[#151f33] border border-gray-700 rounded-xl p-3.5 text-sm focus:outline-none focus:border-blue-500">
+                <input type="tel" id="lead_phone" placeholder="Phone Number (WhatsApp)" required class="w-full bg-[#151f33] border border-gray-700 rounded-xl p-3.5 text-sm focus:outline-none focus:border-blue-500">
+                <select id="lead_plan" class="w-full bg-[#151f33] border border-gray-700 rounded-xl p-3.5 text-sm focus:outline-none focus:border-blue-500">
+                    <option value="₹7,000 Starter">₹7,000 Starter Plan</option>
+                    <option value="₹15,000 Growth">₹15,000 Growth Machine</option>
+                    <option value="₹30,000 VIP">₹30,000 360° VIP Dominator</option>
+                </select>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:opacity-90 text-white font-black py-4 rounded-xl text-sm transition transform hover:scale-[1.01] shadow-lg shadow-purple-600/30">Submit Inquiry</button>
+            </form>
+            <div id="leadMsg" class="mt-4 text-sm text-center hidden"></div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/916386325046?text=Hi%20RS%20Technology" target="_blank" class="fixed bottom-6 right-6 bg-gradient-to-tr from-green-600 to-emerald-400 hover:from-green-500 hover:to-emerald-300 text-white p-4 rounded-full shadow-2xl flex items-center justify-center text-3xl z-50 floating transition transform hover:scale-110">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 bg-[#060911] py-10 text-center text-xs text-gray-500 space-y-4">
+        <div class="flex justify-center items-center gap-8 text-sm">
+            <a href="https://www.instagram.com/mr___satyam____/" target="_blank" class="text-pink-400 hover:text-pink-300 flex items-center gap-2 transition font-bold hover:scale-105">
+                <i class="fab fa-instagram text-base"></i> @mr___satyam____
+            </a>
+            <a href="tel:6386325046" class="text-blue-400 hover:text-blue-300 flex items-center gap-2 transition font-bold hover:scale-105">
+                <i class="fas fa-phone-alt"></i> +91 6386325046
+            </a>
+        </div>
+        <div>© 2026 RS Technology. Built specifically for local business growth.</div>
+    </footer>
+
+    <!-- AOS Animation Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        // 1. Fetch Live Portfolio Works
+        async function loadLivePortfolio() {
+            try {
+                const res = await fetch('/api/portfolio/live');
+                const works = await res.json();
+                const container = document.getElementById('livePortfolioContainer');
+                if (works.length === 0) {
+                    container.innerHTML = '<div class="col-span-3 text-center text-gray-500 text-sm">New client case studies and projects will be published soon!</div>';
+                    return;
+                }
+                container.innerHTML = works.map(w => `
+                    <div class="bg-[#0d1424] border border-gray-800 rounded-3xl overflow-hidden hover:border-purple-500/50 transition duration-300 group shadow-lg hover:shadow-purple-500/10 flex flex-col justify-between">
+                        <div class="relative overflow-hidden">
+                            <img src="${w.image_url}" alt="${w.title}" class="h-48 w-full object-cover transform group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/111827/ffffff?text=RS+Tech+Project'">
+                            <span class="absolute top-3 right-3 bg-black/70 backdrop-blur text-purple-300 text-[10px] font-bold px-3 py-1 rounded-full uppercase border border-purple-500/30">
+                                ${w.category}
+                            </span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-bold text-lg text-white mb-2">${w.title}</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed mb-4">${w.description || 'Custom crafted by RS Technology.'}</p>
+                            </div>
+                            ${w.project_link && w.project_link !== '#' ? `
+                            <a href="${w.project_link}" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-blue-400 hover:text-blue-300 transition group-hover:translate-x-1 duration-300">
+                                View Live Demo / Proof <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error(err);
+            }
+        }
+        loadLivePortfolio();
+
+        // 2. Fetch Approved Reviews
+        async function loadApprovedReviews() {
+            try {
+                const res = await fetch('/api/reviews/approved');
+                const reviews = await res.json();
+                const container = document.getElementById('approved-reviews');
+                if (reviews.length === 0) {
+                    container.innerHTML = '<div class="col-span-3 text-center text-gray-500 text-sm">No approved reviews yet. Be the first to submit one!</div>';
+                    return;
+                }
+                container.innerHTML = reviews.map(r => `
+                    <div class="bg-[#0f172a] border border-gray-800 p-6 rounded-2xl shadow hover:border-purple-500/50 transition duration-300">
+                        <div class="text-yellow-400 text-sm mb-2.5">${'★'.repeat(r.rating)}</div>
+                        <p class="text-gray-300 text-sm mb-4 italic">"${r.review_text}"</p>
+                        <div class="font-bold text-white text-sm">${r.client_name}</div>
+                        <div class="text-xs text-gray-400">${r.business_name}</div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error(err);
+            }
+        }
+        loadApprovedReviews();
+
+        // 3. Review Submission Form
+        document.getElementById('reviewForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const payload = {
+                client_name: document.getElementById('rev_name').value,
+                business_name: document.getElementById('rev_business').value,
+                rating: document.getElementById('rev_rating').value,
+                review_text: document.getElementById('rev_text').value
+            };
+            const res = await fetch('/api/reviews', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            const msg = document.getElementById('reviewMsg');
+            msg.classList.remove('hidden');
+            if (data.success) {
+                msg.className = 'mt-4 text-sm text-center text-green-400';
+                msg.innerText = 'Thank you! Your review has been submitted for moderation and will appear publicly once approved.';
+                document.getElementById('reviewForm').reset();
+            } else {
+                msg.className = 'mt-4 text-sm text-center text-red-400';
+                msg.innerText = 'Something went wrong. Please try again.';
+            }
+        });
+
+        // 4. Lead Submission Form
+        document.getElementById('leadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const payload = {
+                name: document.getElementById('lead_name').value,
+                business_name: document.getElementById('lead_business').value,
+                phone: document.getElementById('lead_phone').value,
+                plan_interested: document.getElementById('lead_plan').value
+            };
+            const res = await fetch('/api/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+            const msg = document.getElementById('leadMsg');
+            msg.classList.remove('hidden');
+            if (data.success) {
+                msg.className = 'mt-4 text-sm text-center text-green-400';
+                msg.innerText = 'Inquiry submitted successfully! Our team will contact you shortly.';
+                document.getElementById('leadForm').reset();
+            } else {
+                msg.className = 'mt-4 text-sm text-center text-red-400';
+                msg.innerText = 'Submission error, please try again.';
+            }
+        });
+    </script>
+</body>
+</html>
